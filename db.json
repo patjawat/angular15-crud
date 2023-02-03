@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employees": [
+    {
+      "fname": "serwerwer",
+      "lname": "",
+      "birthdate": "",
+      "education": "",
+      "email": "werwer",
+      "gender": "",
+      "id": 1
+    },
+    {
+      "fname": "a",
+      "lname": "",
+      "birthdate": "",
+      "education": "",
+      "email": "ewqwe",
+      "gender": "",
+      "id": 2
+    }
+  ]
+}

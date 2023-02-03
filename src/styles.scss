@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400&family=Sarabun:wght@100;200;300;400;500&display=swap');
+
+@include mat.core();
+
+$my-app-primary: mat.define-palette(mat.$indigo-palette);
+$my-app-accent: mat.define-palette(mat.$pink-palette, A700, A100, A400);
+$my-app-warn: mat.define-palette(mat.$red-palette);
+
+// $my-app-primary: mat.define-palette(mat.$indigo-palette, 700, 300, 900);
+// $my-app-accent: mat.define-palette($mat-light-blue);
+// $my-app-warn: mat.define-palette($mat-deep-orange, A200);
+
+
+// ตั้งค่า Font
+$kids-typography: mat.define-typography-config(
+    $font-family: 'Prompt',
+  );
+
+  
+$my-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-app-primary,
+      accent: $my-app-accent,
+      warn: $my-app-warn,
+    ),
+    typography: $kids-typography,
+  )
+);
+
+// @include angular-material-typography($custom-typography);
+@include mat.all-component-themes($my-app-theme);
+/* ======== Angular material custom themes ======== */  
+html, body { height: 100%;font-family: Prompt, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Prompt, "Helvetica Neue", sans-serif; }

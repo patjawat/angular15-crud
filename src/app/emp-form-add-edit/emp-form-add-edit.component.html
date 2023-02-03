@@ -1,0 +1,59 @@
+<div mat-dialog-title>
+  <h1>ข้อมูลพนักงาน</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>ชื่อ</mat-label>
+      <input matInput matInputCommified type="text" placeholder="ระบุชื่อ" formControlName="fname" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>นาสกุล</mat-label>
+      <input matInput matInputCommified type="text" placeholder="ระบุนามสกุล" formControlName="lname"/>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput matInputCommified type="email" formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>วันเกิด</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthdate"/>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-radio-group aria-label="Select an option">
+      <mat-label>เพศ</mat-label>
+      <mat-radio-button value="1">ชาย</mat-radio-button>
+      <mat-radio-button value="2">หญิง</mat-radio-button>
+      <mat-radio-button value="3">อื่นๆ</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>การศึกษา</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div mat-dialog-actions class="action">
+  <button mat-raised-button type="button" [mat-dialog-close]="false">
+    Cancel
+  </button>
+  <button mat-raised-button color="primary" type="submit">{{data ? 'Update' : 'Save'}}</button>
+</div>
+</form>
